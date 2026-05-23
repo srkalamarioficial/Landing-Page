@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cabresto Trançado – Feito à Mão, Sem Machucar seu Cavalo</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+:root{
+  --brown-dark:#2A1505;
+  --brown:#5C2D0A;
+  --brown-mid:#8B4513;
+  --brown-light:#C68642;
+  --gold:#D4A017;
+  --gold-light:#F0C040;
+  --cream:#FDF6EC;
+  --off-white:#F5EDE0;
+  --text:#1A0D00;
+  --muted:#6B4C2A;
+  --green:#2D6A2D;
+  --green-light:#3D8B3D;
+  --red:#C0392B;
+}
+
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+/* ===== NAVBAR ===== */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.9rem 2rem;
+  background:rgba(255, 255, 255, 0.96);
+  backdrop-filter:blur(6px);
+  border-bottom:2px solid var(--gold);
+}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--gold);letter-spacing:.1em}
+.nav-logo span{color:var(--cream)}
+.nav-cta{
+  background:var(--gold);color:var(--brown-dark);
+  font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:.55rem 1.4rem;border-radius:4px;border:none;cursor:pointer;
+  transition:background .2s,transform .15s;text-decoration:none;
+}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-2px)}
+.urgency-bar{
+  background:var(--red);color:#fff;
+  text-align:center;padding:.5rem;font-size:.82rem;font-weight:700;
+  letter-spacing:.06em;
+  margin-top:62px;
+}
+.urgency-bar span{background:rgba(0,0,0,.25);padding:.1rem .5rem;border-radius:3px;margin:0 .3rem}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  background:linear-gradient(160deg,var(--brown-dark) 0%,#3D1A06 45%,var(--brown) 100%);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;
+  padding:5rem 2rem 4rem;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C68642' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;
+  position:relative;z-index:1;width:100%;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(212,160,23,.15);border:1px solid var(--gold);
+  color:var(--gold-light);font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  padding:.4rem 1rem;border-radius:50px;margin-bottom:1.2rem;
+}
+.hero-badge::before{content:'★';font-size:.8rem}
+h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3rem,6vw,5.5rem);
+  line-height:.95;
+  color:var(--cream);
+  margin-bottom:1rem;
+  letter-spacing:.02em;
+}
+h1 .gold{color:var(--gold)}
+h1 .italic{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(2.2rem,4.5vw,4.2rem)}
+.hero-sub{
+  font-size:1.15rem;font-weight:300;color:rgba(253,246,236,.8);
+  line-height:1.7;margin-bottom:2rem;max-width:480px;
+}
+.hero-sub strong{color:var(--gold-light);font-weight:700}
+.hero-cta-group{display:flex;flex-direction:column;gap:.8rem;max-width:380px}
+.btn-main{
+  display:block;text-align:center;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);
+  color:var(--brown-dark);font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;
+  padding:1.1rem 2rem;border-radius:6px;border:none;cursor:pointer;
+  text-decoration:none;
+  box-shadow:0 8px 30px rgba(212,160,23,.4);
+  transition:transform .2s,box-shadow .2s;
+  animation:pulse-cta 2.5s ease-in-out infinite;
+}
+.btn-main:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(212,160,23,.5)}
+@keyframes pulse-cta{
+  0%,100%{box-shadow:0 8px 30px rgba(212,160,23,.4)}
+  50%{box-shadow:0 8px 45px rgba(212,160,23,.65)}
+}
+.btn-sub{
+  display:block;text-align:center;
+  background:transparent;color:var(--cream);
+  font-size:.88rem;letter-spacing:.06em;
+  border:1px solid rgba(253,246,236,.3);
+  padding:.75rem 2rem;border-radius:6px;
+  text-decoration:none;transition:border-color .2s,color .2s;
+}
+.btn-sub:hover{border-color:var(--gold);color:var(--gold)}
+.trust-row{
+  display:flex;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap;
+}
+.trust-item{
+  display:flex;align-items:center;gap:.4rem;
+  font-size:.78rem;color:rgba(253,246,236,.65);font-weight:600;letter-spacing:.05em;
+}
+.trust-item .icon{font-size:1rem}
+
+/* Hero visual */
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.hero-img-frame{
+  width:100%;max-width:460px;
+  border-radius:12px;overflow:hidden;
+  border:3px solid var(--gold);
+  box-shadow:0 30px 80px rgba(0,0,0,.5);
+  position:relative;
+}
+.hero-img-placeholder{
+  width:100%;height:800px;
+  background:linear-gradient(145deg,#3D1A06,#5C2D0A,#8B4513);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:var(--gold-light);font-size:1rem;letter-spacing:.1em;text-align:center;padding:2rem;
+}
+.horse-svg{width:180px;height:180px;margin-bottom:1rem;opacity:.7}
+.hero-img-placeholder p{font-size:.8rem;opacity:.6;line-height:1.6}
+.float-badge{
+  position:absolute;
+  background:var(--green);color:#fff;
+  font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:.5rem 1rem;border-radius:4px;
+  box-shadow:0 4px 20px rgba(0,0,0,.3);
+}
+.float-badge.b1{top:1rem;right:-1rem;z-index: 1}
+.float-badge.b2{bottom:2rem;left:-1rem;background:var(--brown-mid);border:1px solid var(--gold)}
+
+/* ===== SECTION HEADERS ===== */
+.section-eyebrow{
+  font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--gold);font-weight:700;
+  display:flex;align-items:center;gap:.75rem;margin-bottom:.8rem;
+}
+.section-eyebrow::after{content:'';flex:0 0 40px;height:1px;background:var(--gold)}
+h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.2rem,4vw,3.5rem);
+  line-height:1.0;letter-spacing:.02em;
+}
+
+/* ===== PAIN POINTS ===== */
+.pain{
+  background:var(--off-white);
+  padding:6rem 2rem;
+  text-align:center;
+}
+.pain h2{color:var(--brown-dark);margin-bottom:.5rem}
+.pain-lead{color:var(--muted);font-size:1.05rem;margin-bottom:3rem;font-weight:300;line-height:1.7}
+.pain-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1.5rem;max-width:1000px;margin:0 auto;
+}
+.pain-card{
+  background:#fff;border-radius:10px;padding:2rem 1.5rem;
+  border-left:4px solid var(--red);
+  box-shadow:0 4px 20px rgba(0,0,0,.06);
+  text-align:left;
+}
+.pain-card .emoji{font-size:2rem;margin-bottom:.8rem;display:block}
+.pain-card h3{font-size:1rem;font-weight:700;color:var(--brown-dark);margin-bottom:.5rem}
+.pain-card p{font-size:.88rem;color:var(--muted);line-height:1.65}
+.pain-transition{
+  max-width:700px;margin:3.5rem auto 0;
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:1.5rem;color:var(--brown-mid);
+  line-height:1.5;text-align:center;
+}
+.pain-transition strong{color:var(--brown-dark);font-style:normal}
+
+/* ===== VIDEO SECTION ===== */
+.video-section{
+  background:var(--brown-dark);
+  padding:6rem 2rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+.video-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(212,160,23,.08) 0%,transparent 70%);
+}
+.video-section h2{color:var(--cream);margin-bottom:.5rem}
+.video-lead{color:rgba(253,246,236,.65);font-size:1rem;margin-bottom:3rem;max-width:600px;margin-left:auto;margin-right:auto}
+.video-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.5rem;max-width:1000px;margin:0 auto;
+}
+.video-thumb{
+  background:#1A0D00;border-radius:10px;overflow:hidden;
+  border:1.5px solid rgba(212,160,23,.2);
+  cursor:pointer;transition:border-color .2s,transform .2s;
+  position:relative;
+}
+.video-thumb:hover{border-color:var(--gold);transform:translateY(-4px)}
+.video-placeholder{
+  width:100%;height:200px;
+  background:linear-gradient(145deg,#1A0D00,#2A1505,#3D1A06);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:var(--gold-light);gap:.8rem;
+  position:relative;
+}
+.play-btn{
+  width:56px;height:56px;border-radius:50%;
+  background:rgba(212,160,23,.9);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;
+  transition:transform .2s,background .2s;
+}
+.video-thumb:hover .play-btn{transform:scale(1.1);background:var(--gold)}
+.video-label{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+.video-info{padding:1rem 1.2rem;text-align:left}
+.video-info h4{font-size:.95rem;font-weight:700;color:var(--cream);margin-bottom:.3rem}
+.video-info p{font-size:.78rem;color:rgba(253,246,236,.5)}
+
+/* ===== PRODUCT / CAROUSEL ===== */
+.product-section{
+  padding:6rem 2rem;
+  background:var(--cream);
+}
+.product-inner{max-width:1100px;margin:0 auto}
+.product-header{text-align:center;margin-bottom:4rem}
+.product-header h2{color:var(--brown-dark)}
+.carousel-wrapper{position:relative}
+.carousel-track{
+  display:flex;gap:1.5rem;overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  padding-bottom:1rem;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.carousel-track::-webkit-scrollbar{display:none}
+.carousel-card{
+  flex:0 0 280px;scroll-snap-align:start;
+  background:#fff;border-radius:12px;overflow:hidden;
+  border:1.5px solid rgba(196,134,66,.15);
+  box-shadow:0 6px 25px rgba(0,0,0,.08);
+  transition:transform .2s,box-shadow .2s;
+}
+.carousel-card:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(0,0,0,.12)}
+.card-img{
+  width:100%;height:220px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:4rem;
+  position:relative;overflow:hidden;
+}
+.card-img.c1{background:linear-gradient(135deg,#8B4513,#C68642)}
+.card-img.c2{background:linear-gradient(135deg,#2A1505,#5C2D0A)}
+.card-img.c3{background:linear-gradient(135deg,#4A3728,#8B6914)}
+.card-img.c4{background:linear-gradient(135deg,#1A3A1A,#2D6A2D)}
+.card-img.c5{background:linear-gradient(135deg,#3A1A1A,#8B1A1A)}
+.card-badge{
+  position:absolute;top:.8rem;right:.8rem;
+  background:var(--gold);color:var(--brown-dark);
+  font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  padding:.25rem .6rem;border-radius:3px;
+}
+.card-img span.emoji{font-size:3.5rem}
+.card-body{padding:1.2rem}
+.card-body h4{font-size:1rem;font-weight:700;color:var(--brown-dark);margin-bottom:.3rem}
+.card-body p{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:.8rem}
+.card-price{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--brown-mid)}
+.card-price span{font-family:'Nunito',sans-serif;font-size:.8rem;font-weight:300;color:var(--muted)}
+.carousel-nav{
+  display:flex;justify-content:center;gap:1rem;margin-top:1.5rem;
+}
+.carousel-btn{
+  background:var(--brown-mid);color:#fff;border:none;
+  width:40px;height:40px;border-radius:50%;cursor:pointer;
+  font-size:1rem;display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+.carousel-btn:hover{background:var(--brown)}
+.carousel-dots{display:flex;gap:.4rem;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(139,69,19,.2);cursor:pointer;transition:all .2s}
+.dot.active{background:var(--brown-mid);width:20px;border-radius:4px}
+
+/* ===== BENEFITS ===== */
+.benefits{
+  background:var(--brown-dark);
+  padding:6rem 2rem;position:relative;overflow:hidden;
+}
+.benefits::before{
+  content:'';position:absolute;right:-200px;top:50%;transform:translateY(-50%);
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(212,160,23,.07) 0%,transparent 70%);
+}
+.benefits-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.benefits-left h2{color:var(--cream);margin-bottom:1rem}
+.benefits-tagline{color:rgba(253,246,236,.6);font-size:1rem;line-height:1.8;margin-bottom:2rem;font-weight:300}
+.benefit-list{display:flex;flex-direction:column;gap:1.2rem}
+.benefit-item{
+  display:flex;gap:1rem;align-items:flex-start;
+  padding:1rem 1.2rem;border-radius:8px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(212,160,23,.1);
+  transition:background .2s,border-color .2s;
+}
+.benefit-item:hover{background:rgba(212,160,23,.07);border-color:rgba(212,160,23,.25)}
+.benefit-icon{
+  width:40px;height:40px;border-radius:8px;
+  background:var(--gold);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+}
+.benefit-text h4{font-size:.95rem;font-weight:700;color:var(--cream);margin-bottom:.25rem}
+.benefit-text p{font-size:.82rem;color:rgba(253,246,236,.55);line-height:1.55}
+
+.benefits-right{padding-top:1rem}
+.compare-table{border-radius:10px;overflow:hidden;border:1px solid rgba(212,160,23,.2)}
+.compare-header{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  background:rgba(212,160,23,.1);
+  padding:.7rem 1rem;
+}
+.compare-header span{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-align:center}
+.compare-header span:first-child{text-align:left}
+.compare-header .ours{color:var(--gold)}
+.compare-row{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  padding:.8rem 1rem;border-top:1px solid rgba(255,255,255,.04);
+  align-items:center;
+}
+.compare-row:nth-child(even){background:rgba(255,255,255,.02)}
+.compare-row span:first-child{font-size:.85rem;color:rgba(253,246,236,.7)}
+.compare-row .check{text-align:center;font-size:1rem}
+.check.yes{color:#4CAF50}
+.check.no{color:rgba(255,255,255,.2)}
+.check.maybe{color:var(--gold)}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials{
+  padding:6rem 2rem;
+  background:var(--off-white);
+}
+.testimonials-header{text-align:center;margin-bottom:4rem}
+.testimonials-header h2{color:var(--brown-dark)}
+.testi-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1.5rem;max-width:1100px;margin:0 auto;
+}
+.testi-card{
+  background:#fff;border-radius:12px;padding:2rem;
+  border:1px solid rgba(196,134,66,.12);
+  box-shadow:0 4px 20px rgba(0,0,0,.06);
+  position:relative;
+}
+.testi-card::before{
+  content:'"';
+  font-family:'Playfair Display',serif;
+  font-size:5rem;color:var(--gold);opacity:.15;
+  position:absolute;top:-1rem;left:1rem;line-height:1;
+}
+.stars{display:flex;gap:2px;margin-bottom:1rem}
+.stars span{color:var(--gold);font-size:1rem}
+.testi-text{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:1rem;color:var(--brown-dark);
+  line-height:1.75;margin-bottom:1.5rem;
+}
+.testi-author{display:flex;align-items:center;gap:.8rem}
+.avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--brown-mid);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;font-weight:700;color:#fff;letter-spacing:.05em;
+  flex-shrink:0;
+}
+.author-name{font-size:.9rem;font-weight:700;color:var(--brown-dark)}
+.author-detail{font-size:.75rem;color:var(--muted)}
+.testi-highlight{
+  max-width:800px;margin:3rem auto 0;
+  background:linear-gradient(135deg,var(--brown-dark),var(--brown));
+  border-radius:12px;padding:2.5rem;
+  text-align:center;border:2px solid var(--gold);
+}
+.testi-highlight p{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:1.35rem;color:var(--cream);
+  line-height:1.65;margin-bottom:1rem;
+}
+.testi-highlight cite{font-size:.82rem;color:var(--gold);font-style:normal;letter-spacing:.1em}
+
+/* ===== CTA 2 ===== */
+.cta2{
+  background:linear-gradient(135deg,var(--brown-mid),var(--brown-dark));
+  padding:5rem 2rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta2::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(212,160,23,.02) 10px,rgba(212,160,23,.02) 20px);
+}
+.cta2-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.cta2 h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2rem,5vw,3.5rem);
+  color:var(--cream);margin-bottom:1rem;
+}
+.cta2 h2 .gold{color:var(--gold-light)}
+.cta2-sub{color:rgba(253,246,236,.7);font-size:1rem;line-height:1.75;margin-bottom:2.5rem;font-weight:300}
+.price-block{
+  display:inline-flex;flex-direction:column;align-items:center;
+  background:rgba(0,0,0,.3);border:1px solid rgba(212,160,23,.3);
+  border-radius:8px;padding:1.5rem 2.5rem;margin-bottom:2rem;
+}
+.price-from{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(253,246,236,.5)}
+.price-main{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--gold);line-height:1}
+.price-installment{font-size:.82rem;color:rgba(253,246,236,.55)}
+.btn-main-lg{
+  display:inline-block;text-align:center;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  color:var(--brown-dark);font-weight:800;font-size:1.15rem;letter-spacing:.04em;text-transform:uppercase;
+  padding:1.2rem 3rem;border-radius:6px;border:none;cursor:pointer;
+  text-decoration:none;
+  box-shadow:0 10px 35px rgba(212,160,23,.45);
+  transition:transform .2s,box-shadow .2s;
+}
+.btn-main-lg:hover{transform:translateY(-3px);box-shadow:0 16px 45px rgba(212,160,23,.55)}
+.guarantee-row{
+  display:flex;justify-content:center;gap:2rem;margin-top:1.5rem;flex-wrap:wrap;
+}
+.g-item{
+  display:flex;align-items:center;gap:.4rem;
+  font-size:.78rem;color:rgba(253,246,236,.6);
+}
+.g-item .ico{font-size:1rem}
+
+/* ===== HOW IT'S MADE ===== */
+.howmade{
+  padding:6rem 2rem;
+  background:var(--cream);
+}
+.howmade-inner{max-width:1000px;margin:0 auto}
+.howmade-header{text-align:center;margin-bottom:4rem}
+.howmade-header h2{color:var(--brown-dark)}
+.steps{display:flex;flex-direction:column;gap:0}
+.step{
+  display:grid;grid-template-columns:80px 1fr;gap:2rem;align-items:start;
+  padding:2rem 0;border-bottom:1px solid rgba(196,134,66,.15);
+}
+.step:last-child{border-bottom:none}
+.step-num{
+  width:64px;height:64px;border-radius:50%;
+  background:linear-gradient(135deg,var(--brown-mid),var(--brown));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--gold);
+  flex-shrink:0;
+  box-shadow:0 6px 20px rgba(92,45,10,.3);
+}
+.step-content h3{font-size:1.1rem;font-weight:700;color:var(--brown-dark);margin-bottom:.4rem}
+.step-content p{font-size:.9rem;color:var(--muted);line-height:1.7}
+.step-content em{color:var(--brown-mid);font-style:normal;font-weight:700}
+
+/* ===== FAQ ===== */
+.faq{
+  padding:6rem 2rem;
+  background:var(--off-white);
+}
+.faq-inner{max-width:760px;margin:0 auto}
+.faq-header{text-align:center;margin-bottom:3rem}
+.faq-header h2{color:var(--brown-dark)}
+.faq-item{
+  border-radius:8px;margin-bottom:.8rem;
+  background:#fff;border:1px solid rgba(196,134,66,.12);
+  overflow:hidden;
+}
+.faq-q{
+  width:100%;background:none;border:none;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.2rem 1.5rem;
+  font-family:'Nunito',sans-serif;font-size:.95rem;font-weight:700;
+  color:var(--brown-dark);text-align:left;
+  transition:background .2s;
+}
+.faq-q:hover{background:rgba(196,134,66,.05)}
+.faq-q .arrow{
+  font-size:1.2rem;color:var(--brown-mid);
+  transition:transform .3s;flex-shrink:0;margin-left:1rem;
+}
+.faq-q.open .arrow{transform:rotate(180deg)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .35s ease,padding .2s;
+  font-size:.9rem;color:var(--muted);line-height:1.75;
+}
+.faq-a.open{max-height:200px;padding:0 1.5rem 1.2rem}
+
+/* ===== FINAL CTA ===== */
+.final-cta{
+  background:var(--brown-dark);
+  padding:8rem 2rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+.final-cta::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 50%,rgba(212,160,23,.1) 0%,transparent 65%);
+}
+.final-cta-inner{position:relative;z-index:1;max-width:750px;margin:0 auto}
+.final-cta h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.5rem,5.5vw,4.5rem);
+  color:var(--cream);margin-bottom:1rem;line-height:.95;
+}
+.final-cta h2 em{
+  font-family:'Playfair Display',serif;
+  font-style:italic;color:var(--gold);
+}
+.final-cta-sub{color:rgba(253,246,236,.65);font-size:1rem;line-height:1.8;margin-bottom:2.5rem;font-weight:300}
+.final-scarcity{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:rgba(192,57,43,.15);border:1px solid rgba(192,57,43,.4);
+  color:#FF8A80;font-size:.82rem;font-weight:700;letter-spacing:.08em;
+  padding:.5rem 1.2rem;border-radius:50px;margin-bottom:2rem;
+  animation:blink-border 2s ease-in-out infinite;
+}
+@keyframes blink-border{
+  0%,100%{border-color:rgba(192,57,43,.4)}
+  50%{border-color:rgba(192,57,43,.8)}
+}
+.final-scarcity::before{content:'🔥'}
+.stock-bar-wrap{max-width:400px;margin:0 auto 2rem;text-align:left}
+.stock-label{
+  display:flex;justify-content:space-between;
+  font-size:.78rem;color:rgba(253,246,236,.55);margin-bottom:.5rem;
+}
+.stock-bar{height:8px;background:rgba(255,255,255,.1);border-radius:4px;overflow:hidden}
+.stock-fill{height:100%;width:73%;background:linear-gradient(90deg,var(--green-light),#66BB6A);border-radius:4px}
+.final-trust{
+  display:flex;justify-content:center;gap:2rem;margin-top:2rem;flex-wrap:wrap;
+}
+.ft-item{
+  display:flex;flex-direction:column;align-items:center;gap:.3rem;
+  font-size:.75rem;color:rgba(253,246,236,.5);letter-spacing:.05em;
+}
+.ft-item .ico{font-size:1.6rem}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#1A0D00;padding:2.5rem;text-align:center;
+  border-top:1px solid rgba(212,160,23,.15);
+}
+footer p{font-size:.78rem;color:rgba(253,246,236,.4);line-height:1.8}
+footer a{color:var(--gold);text-decoration:none}
+
+/* ===== FLOATING CTA (mobile sticky) ===== */
+.sticky-cta{
+  position:fixed;bottom:0;left:0;right:0;z-index:888;
+  background:var(--brown-dark);border-top:2px solid var(--gold);
+  padding:.8rem 1.5rem;display:flex;align-items:center;justify-content:space-between;
+  transform:translateY(100%);transition:transform .4s;
+}
+.sticky-cta.visible{transform:translateY(0)}
+.sticky-price{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--gold)}
+.sticky-price small{font-family:'Nunito',sans-serif;font-size:.7rem;color:rgba(253,246,236,.5);font-weight:300;display:block}
+.sticky-btn{
+  background:var(--gold);color:var(--brown-dark);
+  font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:.65rem 1.4rem;border-radius:4px;border:none;cursor:pointer;
+  text-decoration:none;white-space:nowrap;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-visual{display:none}
+  .benefits-inner{grid-template-columns:1fr}
+  nav .nav-links .nav-cta{display:none}
+  .sticky-cta{display:flex}
+  .howmade{padding-bottom:8rem}
+}
+@media(min-width:769px){.sticky-cta{display:none}}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- STICKY CTA MOBILE -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-price">
+    <small>Cabresto Artesanal a partir de</small>
+    R$ 189
+  </div>
+  <a href="#comprar" class="sticky-btn">Quero o meu →</a>
+</div>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar">
+  🔥 ATENÇÃO: Restam apenas <span id="countdown">00:14:37</span> desta oferta especial | Frete grátis acima de R$ 300
+</div>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="nav-logo">Trança<span>Forte</span></div>
+  <div class="nav-links">
+    <a href="#comprar" class="nav-cta">Comprar agora</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">Feito à mão no Brasil · Desde 2024</div>
+      <h1>
+        O cabresto que<br>
+        <span class="gold">respeita</span> seu<br>
+        <span class="italic">cavalo.</span>
+      </h1>
+      <p class="hero-sub">
+        Trançado à mão com <strong>cordas de polipropileno premium</strong>, nosso cabresto distribui a pressão uniformemente — <strong>sem pontos de atrito, sem lesões, sem sofrimento.</strong> Customizado do jeito que você precisa.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#comprar" class="btn-main">🤠 Quero meu cabresto agora</a>
+        <a href="#como-e-feito" class="btn-sub">Ver como é feito ↓</a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item"><span class="icon">✅</span> +2.400 cavaleiros satisfeitos</div>
+        <div class="trust-item"><span class="icon">🔒</span> 30 dias de garantia</div>
+        <div class="trust-item"><span class="icon">⚡</span> Entrega em 7 dias</div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="float-badge b1">🏆 Produto do Ano 2024</div>
+      <div class="hero-img-frame">
+        <div class="hero-img-placeholder">
+          <img src="Images/Quadrado.png" alt="Descrição da imagem">
+          <p>[ Insira aqui a foto do<br>seu cabresto com o cavalo ]</p>
+        </div>
+      </div>
+      <div class="float-badge b2">✋ 100% feito à mão</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOR / PROBLEMA ===== -->
+<section class="pain fade-in">
+  <div class="section-eyebrow" style="justify-content:center">O problema que ninguém fala</div>
+  <h2 style="color:var(--brown-dark);margin-bottom:.5rem">Seu cavalo está sofrendo<br>em silêncio?</h2>
+  <p class="pain-lead">Cabrestos comuns causam danos invisíveis — e você só percebe quando é tarde demais.</p>
+
+  <div class="pain-grid">
+    <div class="pain-card">
+      <span class="emoji">😣</span>
+      <h3>Pontos de pressão dolorosos</h3>
+      <p>Cabrestos de nylon rígido criam pontos de atrito que machucam o focinho e as bochechas do cavalo com o uso contínuo.</p>
+    </div>
+    <div class="pain-card">
+      <span class="emoji">🩹</span>
+      <h3>Lesões e feridas escondidas</h3>
+      <p>A pressão concentrada em pontos específicos pode gerar calos, feridas e até danos nos nervos faciais sem que o tutor perceba.</p>
+    </div>
+    <div class="pain-card">
+      <span class="emoji">😤</span>
+      <h3>Cavalo agitado e resistente</h3>
+      <p>Cavalos que resistem ao cabresto geralmente estão comunicando dor. O desconforto cria associações negativas duradouras.</p>
+    </div>
+    <div class="pain-card">
+      <span class="emoji">💸</span>
+      <h3>Custo alto com veterinário</h3>
+      <p>Lesões mal cuidadas viram tratamentos caros. Prevenir com um cabresto adequado é infinitamente mais barato do que remediar.</p>
+    </div>
+  </div>
+
+  <p class="pain-transition">
+    E se existisse um cabresto que o cavalo <strong>nem percebe que está usando?</strong><br>
+    Existe — e foi feito à mão, especialmente para ele.
+  </p>
+</section>
+
+<!-- ===== VÍDEOS ===== -->
+<section class="video-section fade-in">
+  <div class="section-eyebrow" style="justify-content:center;color:var(--gold)">Veja em ação</div>
+  <h2 style="color:var(--cream)">A diferença que você<br>consegue <em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gold)">ver e sentir</em></h2>
+  <p class="video-lead">Dezenas de cavaleiros compartilharam sua experiência. Esses são apenas alguns.</p>
+
+  <div class="video-grid">
+    <div class="video-thumb">
+      <div class="video-placeholder">
+        <div class="play-btn">▶</div>
+        <div class="video-label">Assista ao depoimento</div>
+      </div>
+      <div class="video-info">
+        <h4>"Meu cavalo parou de resistir no primeiro dia"</h4>
+        <p>Mariana R. · Criadora de Quarto de Milha · Ribeirão Preto</p>
+      </div>
+    </div>
+    <div class="video-thumb">
+      <div class="video-placeholder">
+        <div class="play-btn">▶</div>
+        <div class="video-label">Comparativo real</div>
+      </div>
+      <div class="video-info">
+        <h4>Cabresto comum vs TraçaForte — lado a lado</h4>
+        <p>Vídeo técnico · Veterinária Equina Dra. Camila Farias</p>
+      </div>
+    </div>
+    <div class="video-thumb">
+      <div class="video-placeholder">
+        <div class="play-btn">▶</div>
+        <div class="video-label">Processo de trançado</div>
+      </div>
+      <div class="video-info">
+        <h4>Veja cada nó sendo feito à mão</h4>
+        <p>Por dentro da produção artesanal · Tempo-real</p>
+      </div>
+    </div>
+  </div>
+  <p style="color:rgba(253,246,236,.35);font-size:.78rem;margin-top:2rem;letter-spacing:.08em">[ Substitua os placeholders pelos seus vídeos reais do YouTube ou Vimeo ]</p>
+</section>
+
+<!-- ===== CARROSSEL DE PRODUTOS ===== -->
+<section class="product-section fade-in" id="produtos">
+  <div class="product-inner">
+    <div class="product-header">
+      <div class="section-eyebrow" style="justify-content:center">Coleção completa</div>
+      <h2 style="color:var(--brown-dark)">Escolha o seu modelo</h2>
+      <p style="color:var(--muted);margin-top:.5rem;font-weight:300">Todos feitos à mão, todos customizáveis. Escolha as cores, o tamanho e o padrão de trança.</p>
+    </div>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-card">
+          <div class="card-img c1">
+            <div class="card-badge">MAIS VENDIDO</div>
+            <span class="emoji">🤠</span>
+          </div>
+          <div class="card-body">
+            <h4>Cabresto Clássico Trançado</h4>
+            <p>O favorito dos criadores. Trança dupla com polipropileno 6mm. Perfeito para uso diário.</p>
+            <div class="card-price">R$ 189 <span>ou 3x R$ 63</span></div>
+          </div>
+        </div>
+
+        <div class="carousel-card">
+          <div class="card-img c2">
+            <div class="card-badge">PREMIUM</div>
+            <span class="emoji">⭐</span>
+          </div>
+          <div class="card-body">
+            <h4>Cabresto Elite com Protetor</h4>
+            <p>Protetor de neoprene embutido nas áreas de pressão. Indicado para cavalos sensíveis.</p>
+            <div class="card-price">R$ 249 <span>ou 4x R$ 62</span></div>
+          </div>
+        </div>
+
+        <div class="carousel-card">
+          <div class="card-img c3">
+            <span class="emoji">🌟</span>
+          </div>
+          <div class="card-body">
+            <h4>Cabresto Show Bicolor</h4>
+            <p>Para quem quer estilo na pista. Combinação de duas cores com acabamento de show.</p>
+            <div class="card-price">R$ 219 <span>ou 3x R$ 73</span></div>
+          </div>
+        </div>
+
+        <div class="carousel-card">
+          <div class="card-img c4">
+            <span class="emoji">🐴</span>
+          </div>
+          <div class="card-body">
+            <h4>Cabresto Potro (0–12 meses)</h4>
+            <p>Especialmente desenvolvido para potros. Material mais suave, regulagem ampla.</p>
+            <div class="card-price">R$ 159 <span>ou 2x R$ 79</span></div>
+          </div>
+        </div>
+
+        <div class="carousel-card">
+          <div class="card-img c5">
+            <div class="card-badge">EXCLUSIVO</div>
+            <span class="emoji">🏆</span>
+          </div>
+          <div class="card-body">
+            <h4>Kit Cabresto + Guia</h4>
+            <p>Cabresto clássico + guia de 2m combinando. Conjunto completo com desconto especial.</p>
+            <div class="card-price">R$ 299 <span>ou 5x R$ 59</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-nav">
+        <button class="carousel-btn" id="prevBtn">◀</button>
+        <div class="carousel-dots" id="carouselDots">
+          <div class="dot active"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <button class="carousel-btn" id="nextBtn">▶</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENEFÍCIOS + COMPARAÇÃO ===== -->
+<section class="benefits fade-in">
+  <div class="benefits-inner">
+    <div class="benefits-left">
+      <div class="section-eyebrow">Por que TraçaForte</div>
+      <h2 style="color:var(--cream)">Engenharia artesanal<br>a favor do<br><span style="color:var(--gold)">seu cavalo</span></h2>
+      <p class="benefits-tagline">Cada detalhe foi pensado por quem entende de equinos. Não é só estética — é ciência aplicada ao bem-estar animal.</p>
+
+      <div class="benefit-list">
+        <div class="benefit-item">
+          <div class="benefit-icon">🎯</div>
+          <div class="benefit-text">
+            <h4>Distribuição uniforme de pressão</h4>
+            <p>A trança espiral divide a pressão em toda a extensão do cabresto, eliminando pontos de concentração de força.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">💧</div>
+          <div class="benefit-text">
+            <h4>Polipropileno resistente à umidade</h4>
+            <p>Não apodrece, não deforma com a chuva, não absorve bactérias. Higiênico e durável por anos.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🎨</div>
+          <div class="benefit-text">
+            <h4>100% customizável</h4>
+            <p>Escolha as cores, o tamanho e o padrão de trança. Cada peça é feita especificamente para o seu pedido.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">✋</div>
+          <div class="benefit-text">
+            <h4>Feito à mão por artesãos certificados</h4>
+            <p>Cada cabresto leva em média 3 horas para ser feito. Qualidade que nenhuma máquina consegue replicar.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🐎</div>
+          <div class="benefit-text">
+            <h4>Aprovado por veterinários equinos</h4>
+            <p>Recomendado pela Dra. Camila Farias, especialista em bem-estar equino, após análise técnica.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="benefits-right">
+      <p style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem">Comparativo honesto</p>
+      <div class="compare-table">
+        <div class="compare-header">
+          <span style="color:rgba(253,246,236,.6)">Característica</span>
+          <span class="ours">TraçaForte</span>
+          <span style="color:rgba(253,246,236,.4)">Comum</span>
+        </div>
+        <div class="compare-row">
+          <span>Não machuca o focinho</span>
+          <span class="check yes">✔</span>
+          <span class="check no">✗</span>
+        </div>
+        <div class="compare-row">
+          <span>Customizado por medida</span>
+          <span class="check yes">✔</span>
+          <span class="check no">✗</span>
+        </div>
+        <div class="compare-row">
+          <span>Feito à mão</span>
+          <span class="check yes">✔</span>
+          <span class="check no">✗</span>
+        </div>
+        <div class="compare-row">
+          <span>Resistente à umidade</span>
+          <span class="check yes">✔</span>
+          <span class="check maybe">~</span>
+        </div>
+        <div class="compare-row">
+          <span>Distribuição de pressão</span>
+          <span class="check yes">✔</span>
+          <span class="check no">✗</span>
+        </div>
+        <div class="compare-row">
+          <span>Durabilidade +5 anos</span>
+          <span class="check yes">✔</span>
+          <span class="check no">✗</span>
+        </div>
+        <div class="compare-row">
+          <span>Garantia 30 dias</span>
+          <span class="check yes">✔</span>
+          <span class="check no">✗</span>
+        </div>
+        <div class="compare-row">
+          <span>Aprovado por veterinário</span>
+          <span class="check yes">✔</span>
+          <span class="check no">✗</span>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;padding:1.2rem;border:1px solid rgba(212,160,23,.2);border-radius:8px;background:rgba(212,160,23,.05)">
+        <p style="font-size:.85rem;color:var(--gold-light);font-weight:700;margin-bottom:.3rem">💡 Sabia que...</p>
+        <p style="font-size:.82rem;color:rgba(253,246,236,.6);line-height:1.65">Cavalos com cabresto inadequado podem desenvolver comportamento de fuga, ansiedade ao manuseio e até dores crônicas na região da cabeça. A escolha do cabresto certo pode mudar completamente o temperamento do seu animal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA 2 ===== -->
+<section class="cta2 fade-in" id="comprar">
+  <div class="cta2-inner">
+    <div class="section-eyebrow" style="justify-content:center;color:var(--gold)">Oferta especial</div>
+    <h2>Seu cavalo merece o <span class="gold">melhor.</span><br>E você merece tranquilidade.</h2>
+    <p class="cta2-sub">Não espere seu cavalo desenvolver lesões para agir. Cada dia com um cabresto inadequado é um dia a mais de desconforto para o animal que você ama.</p>
+
+    <div class="price-block">
+      <span class="price-from">A partir de</span>
+      <span class="price-main">R$ 189</span>
+      <span class="price-installment">ou 3x de R$ 63 sem juros · Frete grátis acima de R$ 300</span>
+    </div>
+
+    <a href="#" class="btn-main-lg">🐴 Personalizar meu cabresto agora</a>
+
+    <div class="guarantee-row">
+      <div class="g-item"><span class="ico">🔒</span> Pagamento seguro</div>
+      <div class="g-item"><span class="ico">🔄</span> 30 dias de garantia</div>
+      <div class="g-item"><span class="ico">📦</span> Entrega em 7 dias</div>
+      <div class="g-item"><span class="ico">✋</span> Feito sob encomenda</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEPOIMENTOS ===== -->
+<section class="testimonials fade-in">
+  <div class="testimonials-header">
+    <div class="section-eyebrow" style="justify-content:center">O que dizem nossos clientes</div>
+    <h2 style="color:var(--brown-dark)">+2.400 cavaleiros<br>já escolheram TraçaForte</h2>
+  </div>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">"Minha égua Nordestina sempre foi muito difícil de cabeçar. No primeiro dia com o TraçaForte ela veio até mim para colocar. Chorei de emoção. Nunca imaginei que era o cabresto que a estava incomodando."</p>
+      <div class="testi-author">
+        <div class="avatar">MR</div>
+        <div>
+          <div class="author-name">Mariana Rodrigues</div>
+          <div class="author-detail">Criadora de Mangalarga · Minas Gerais</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">"Comprei o kit com guia para os meus três cavalos. A qualidade é absurda. Parece que vai durar uma vida inteira. O acabamento é impecável e as cores ficaram exatamente como pedi."</p>
+      <div class="testi-author">
+        <div class="avatar">JC</div>
+        <div>
+          <div class="author-name">João Carlos Melo</div>
+          <div class="author-detail">Treinador de Rédeas · São Paulo</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">"Como veterinária, fui cética no início. Mas os resultados falam por si. Indico para todos os meus pacientes equinos com histórico de sensibilidade na cabeça. Produto sério e responsável."</p>
+      <div class="testi-author">
+        <div class="avatar">CF</div>
+        <div>
+          <div class="author-name">Dra. Camila Farias</div>
+          <div class="author-detail">Médica Veterinária Equina · CRMV-SP 12847</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">"Presente de aniversário para minha filha e o cavalo dela. Quando ela viu as cores personalizadas com o nome do cavalo bordado, ficou sem palavras. É um produto de coração, feito com amor."</p>
+      <div class="testi-author">
+        <div class="avatar">PS</div>
+        <div>
+          <div class="author-name">Paulo Santana</div>
+          <div class="author-detail">Cliente satisfeito · Goiás</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">"Já testei pelo menos oito marcas de cabresto diferentes em 20 anos de equitação. O TraçaForte é o único que meus cavalos realmente aceitam sem resistência. Investi certo."</p>
+      <div class="testi-author">
+        <div class="avatar">LF</div>
+        <div>
+          <div class="author-name">Letícia Figueiredo</div>
+          <div class="author-detail">Amazona · Campeonato Brasileiro · Rio Grande do Sul</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">"Recebi em 5 dias, exatamente como encomendei. O atendimento foi incrível — me ajudaram a escolher o tamanho certo e o padrão de trança ideal para o temperamento do meu cavalo."</p>
+      <div class="testi-author">
+        <div class="avatar">AC</div>
+        <div>
+          <div class="author-name">Anderson Carvalho</div>
+          <div class="author-detail">Fazendeiro · Mato Grosso do Sul</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="testi-highlight">
+    <p>"Depois de 6 meses usando o TraçaForte, revisitei meu cavalo com tomografia. Zero sinal de compressão facial. Para mim, isso é a prova definitiva de que o produto faz o que promete."</p>
+    <cite>— DRA. CAMILA FARIAS · VETERINÁRIA EQUINA · SÃO PAULO</cite>
+  </div>
+</section>
+
+<!-- ===== COMO É FEITO ===== -->
+<section class="howmade fade-in" id="como-e-feito">
+  <div class="howmade-inner">
+    <div class="howmade-header">
+      <div class="section-eyebrow" style="justify-content:center">Transparência total</div>
+      <h2 style="color:var(--brown-dark)">Do fio ao focinho:<br>como é feito cada cabresto</h2>
+      <p style="color:var(--muted);margin-top:.5rem;font-weight:300;font-size:1rem;line-height:1.7;max-width:580px;margin-left:auto;margin-right:auto">Nada é industrializado. Cada nó, cada passada de corda, cada ajuste — feito por mãos humanas que entendem de cavalos.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3>Seleção das cordas</h3>
+          <p>Usamos apenas polipropileno de <em>grau náutico</em>, o mesmo usado em embarcações de alto mar. Testado para resistência a UV, umidade e tração superior a 300kg. Cada lote é inspecionado manualmente antes de entrar na produção.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3>Medição personalizada</h3>
+          <p>Com base nas medidas que você envia, cada peça é dimensionada individualmente. Oferecemos <em>4 tamanhos padrão</em> e também produzimos sob medida para raças atípicas como miniatura e draft horses.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3>Trançado artesanal em espiral</h3>
+          <p>A técnica exclusiva de trança em espiral dupla distribui a pressão em <em>toda a superfície de contato</em>, eliminando pontos de pressão. Cada cabresto leva de 2 a 4 horas para ser trançado à mão.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h3>Acabamento e teste de resistência</h3>
+          <p>Todas as extremidades são aquecidas e seladas para evitar desfiar. Cada peça passa por um <em>teste de tração</em> antes de ser embalada, garantindo que suporta acima de 200kg sem ceder.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-content">
+          <h3>Embalagem e envio em 48h</h3>
+          <p>Cada cabresto é embalado individualmente com o <em>certificado de autenticidade</em> e as instruções de cuidado. Postado em até 48h após a confirmação do pedido. Você recebe o código de rastreio por WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq fade-in">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <div class="section-eyebrow" style="justify-content:center">Tire suas dúvidas</div>
+      <h2 style="color:var(--brown-dark)">Perguntas frequentes</h2>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Como funciona a personalização? <span class="arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        Após o pedido, entraremos em contato pelo WhatsApp para confirmar as medidas do seu cavalo, as cores desejadas e o padrão de trança. Oferecemos mais de 20 combinações de cores e 3 padrões de trança diferentes. O processo de personalização não atrasa a entrega.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Quanto tempo leva para chegar? <span class="arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        O prazo de produção é de até 3 dias úteis após a confirmação do pedido. O frete varia entre 3 e 7 dias úteis dependendo da sua região. No total, você recebe em até 10 dias úteis. Pedidos com frete expresso chegam em até 5 dias úteis no total.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Qual a garantia do produto? <span class="arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        Oferecemos 30 dias de garantia total. Se por qualquer motivo você não estiver satisfeito com o produto, devolvemos 100% do valor pago. Também garantimos o produto por 12 meses contra defeitos de fabricação ou desfazimento da trança.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Funciona para qualquer raça de cavalo? <span class="arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        Sim! Produzimos para todas as raças — desde pôneis e miniatura até cavalos Percheron e Friesian. Basta nos enviar a medida da cabeça do seu animal (circunferência do focinho e largura da cabeça) e faremos o cabresto perfeitamente ajustado.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Posso pedir em atacado para revender? <span class="arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        Sim! Temos programa especial para revendedores com desconto progressivo a partir de 5 peças. Entre em contato pelo WhatsApp para receber nossa tabela de atacado e condições especiais para lojistas e pet shops equestres.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Como limpar e conservar o cabresto? <span class="arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        O polipropileno é muito fácil de limpar: basta lavar com água e sabão neutro. Pode ser esfregado sem medo de danificar. Não precisa de produtos especiais, não desbota e seca rapidamente. Com cuidados básicos, o cabresto dura mais de 5 anos.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final-cta fade-in">
+  <div class="final-cta-inner">
+    <div class="section-eyebrow" style="justify-content:center;color:var(--gold)">Última chamada</div>
+
+    <div class="final-scarcity">Apenas 47 unidades disponíveis esta semana</div>
+
+    <h2>
+      Cada dia que passa<br>
+      é um dia de<br>
+      <em>desconforto desnecessário.</em>
+    </h2>
+
+    <p class="final-cta-sub">
+      Você cuida da alimentação, da saúde, do treinamento — cuide também do que toca o rosto do seu cavalo todos os dias. Um cabresto certo não é luxo. É respeito.
+    </p>
+
+    <div class="stock-bar-wrap">
+      <div class="stock-label">
+        <span>Estoque desta semana</span>
+        <span style="color:var(--gold)">73% vendido</span>
+      </div>
+      <div class="stock-bar"><div class="stock-fill"></div></div>
+    </div>
+
+    <a href="#" class="btn-main-lg" style="font-size:1.2rem;padding:1.3rem 3.5rem">
+      🐴 Garantir meu cabresto agora
+    </a>
+
+    <div class="final-trust">
+      <div class="ft-item"><span class="ico">🔒</span>Pix / Cartão</div>
+      <div class="ft-item"><span class="ico">🔄</span>30 dias garantia</div>
+      <div class="ft-item"><span class="ico">📦</span>Entrega rastreada</div>
+      <div class="ft-item"><span class="ico">💬</span>Suporte WhatsApp</div>
+      <div class="ft-item"><span class="ico">✋</span>Feito à mão</div>
+    </div>
+
+    <p style="margin-top:2.5rem;font-size:.82rem;color:rgba(253,246,236,.3);line-height:1.6">
+      Ao finalizar sua compra, você será redirecionado para o WhatsApp do nosso artesão para personalização. Produção iniciada em até 24h após confirmação.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:rgba(212,160,23,.6);letter-spacing:.1em;margin-bottom:.5rem">TraçaForte</p>
+  <p>Cabrestos artesanais de polipropileno · Feitos com amor por cavaleiros para cavaleiros</p>
+  <p>📍 Brasil · 📱 <a href="#">WhatsApp: (XX) XXXXX-XXXX</a> · 📧 <a href="#">contato@tracaforte.com.br</a></p>
+  <p style="margin-top:1rem;font-size:.7rem">© 2025 TraçaForte · Todos os direitos reservados · <a href="#">Política de Privacidade</a> · <a href="#">Trocas e Devoluções</a></p>
+</footer>
+
+<script>
+// ===== COUNTDOWN =====
+(function(){
+  var t=14*60+37;
+  function tick(){
+    t--;if(t<0)t=15*60;
+    var m=Math.floor(t/60),s=t%60;
+    var el=document.getElementById('countdown');
+    if(el)el.textContent='00:'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+  }
+  setInterval(tick,1000);
+})();
+
+// ===== STICKY CTA =====
+(function(){
+  var hero=document.querySelector('.hero');
+  var sticky=document.getElementById('stickyCta');
+  function onScroll(){
+    if(!hero||!sticky)return;
+    var bottom=hero.getBoundingClientRect().bottom;
+    if(bottom<0)sticky.classList.add('visible');
+    else sticky.classList.remove('visible');
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+})();
+
+// ===== FAQ =====
+function toggleFaq(btn){
+  var item=btn.parentElement;
+  var answer=item.querySelector('.faq-a');
+  var isOpen=btn.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.classList.remove('open');
+    q.parentElement.querySelector('.faq-a').classList.remove('open');
+  });
+  if(!isOpen){btn.classList.add('open');answer.classList.add('open');}
+}
+
+// ===== CAROUSEL =====
+(function(){
+  var track=document.getElementById('carouselTrack');
+  var dots=document.querySelectorAll('.dot');
+  if(!track)return;
+  var cards=track.querySelectorAll('.carousel-card');
+  var cardW=cards[0]?cards[0].offsetWidth+24:304;
+  var current=0;
+
+  function goTo(i){
+    current=Math.max(0,Math.min(i,cards.length-1));
+    track.scrollTo({left:current*cardW,behavior:'smooth'});
+    dots.forEach(function(d,idx){d.classList.toggle('active',idx===current)});
+  }
+
+  document.getElementById('prevBtn').onclick=function(){goTo(current-1)};
+  document.getElementById('nextBtn').onclick=function(){goTo(current+1)};
+  dots.forEach(function(d,i){d.onclick=function(){goTo(i)}});
+
+  track.addEventListener('scroll',function(){
+    var idx=Math.round(track.scrollLeft/cardW);
+    if(idx!==current){current=idx;dots.forEach(function(d,i){d.classList.toggle('active',i===idx)})}
+  },{passive:true});
+})();
+
+// ===== FADE IN ON SCROLL =====
+(function(){
+  var els=document.querySelectorAll('.fade-in');
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')});
+  },{threshold:.1});
+  els.forEach(function(el){observer.observe(el)});
+})();
+</script>
+</body>
+</html>
